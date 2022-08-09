@@ -1,8 +1,7 @@
-project1 = "Project ABC"
-project2 = "Project LMN"
-project3 = "Project XYZ"
-funding1 = 1000
+def project_listing (name, fund=0)
+    "#{name.ljust(30, '.')} $#{fund} in funding."
+end
 
-puts "#{project1} has $#{funding1} in funding."
-
-puts "Projects \n\t#{project1}\n\t#{project2}\n\t#{project2}"
+puts project_listing("Project ABC", 1000)
+puts project_listing("Project LMN", 500)
+puts project_listing("Project XYZ", 25)
