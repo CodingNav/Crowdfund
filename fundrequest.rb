@@ -1,4 +1,5 @@
 require_relative "project"
+require_relative "die"
 
 class FundRequest
 
@@ -14,14 +15,19 @@ class FundRequest
     end
 
     def request_funding
-        puts "There are #{@projects.size} projects you can fund"
+        puts "There are #{@projects.size} projects that you could fund:"
         @projects.each do |project|
-            puts project
+          puts project
         end
         @projects.each do |project|
-            project.add_funds
+          die = Die.new
+          number_rolled = die.roll
+          if number_rolled.odd?
             project.remove_funds
-            puts project
+          else
+            project.add_funds
+          end
+          puts project
         end
-    end
+      end
 end
